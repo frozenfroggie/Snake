@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #090707;
+  overflow: hidden;
+  color: #EFDC05;
+}
+
+canvas {
+  display: block;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.snakeLogo {
+  width: 100px;
+  height: 100px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: -70px;
+  width: 95%;
+}
+
+.mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  border: 1px solid #EFDC05;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.mode:hover {
+  cursor: pointer;
+  background-color: #EFDC05;
+  color: black;
+}
+
+
+.colorPicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 34px;
+}
+
+.controls {
+  display: grid;
+  grid-template-areas:
+    " . . . . . "
+    " . . up . . "
+    " . left down right .";
+  grid-template-columns: 1fr 30px 30px 30px 1fr;
+  grid-auto-rows: 30px 30px 30px;
+  grid-gap: 10px;
+}
+
+.controls div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #EFDC05;
+  border-radius: 4px;
+}
+
+.up {
+  grid-area: up;
+}
+
+.left {
+  grid-area: left;
+}
+
+.down {
+  grid-area: down;
+}
+
+.right {
+  grid-area: right;
+}
+
+.gameOver {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.gameOverTitle {
+  text-align: center;
+  margin: 10px auto 20px;
+}
+
+.scoresContainer {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  border: 1px solid #EFDC05;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.scoresContainer h3 {
+  text-align: center;
+}
+
+.scoresContainer .scores {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+}
+
+.scoresContainer .scores li {
+  padding: 7px;
+}
+
+.newGame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 80px;
+  padding: 5px;
+  border: 1px solid #EFDC05;
+  border-radius: 0px 0px 6px 6px;
+  font-weight: 600;
+}
+
+.newGame:hover {
+  cursor: pointer;
+  background-color: #EFDC05;
+  color: black;
+}
+
+@media only screen and (min-width: 750px) {
+  .container {
+    flex-direction: row;
+  }
+  .menu {
+    width: auto;
+    top: 0px;
+  }
+  .mode {
+    width: 180px;
+  }
+  .firstPlayer .mode {
+    border-radius: 10px 0px 0px 10px;
+  }
+  .secondPlayer .mode {
+    border-radius: 0px;
+  }
+  .thirdPlayer .mode {
+    border-radius: 0px 10px 10px 0px;
+  }
+
+}
+
+@media only screen and (min-width: 950px) {
+  .snakeLogo {
+    position: relative;
+    left: 5%;
+  }
+}

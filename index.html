@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  <title>Snake</title>
+</head>
+<body>
+  <div class="container" id="container">
+    <img src="./assets/snake.svg" class="snakeLogo"/>
+    <div class="menu" id="menu">
+      <div class="firstPlayer">
+        <div class="mode" id="1Players"> One player </div>
+        <div class='controls'>
+          <div class="up">&#x2191;</div>
+          <div class="left">&#x2190;</div>
+          <div class="down">&#x2193;</div>
+          <div class="right">&#x2192;</div>
+        </div>
+        <div class="colorPicker">
+          <input id="colorPicker1" name="Color Picker" type="color" value="#e66465"/>
+        </div>
+      </div>
+      <div class='secondPlayer'>
+        <div class="mode" id="2Players"> Two players </div>
+        <div class='controls'>
+          <div class="up">W</div>
+          <div class="left">A</div>
+          <div class="down">S</div>
+          <div class="right">D</div>
+        </div>
+        <div class="colorPicker">
+          <input id="colorPicker2" name="Color Picker" type="color" value="#f6b73c"/>
+        </div>
+      </div>
+      <div class='thirdPlayer'>
+        <div class="mode" id="3Players"> Three players </div>
+        <div class='controls'>
+          <div class="up">I</div>
+          <div class="left">J</div>
+          <div class="down">K</div>
+          <div class="right">L</div>
+        </div>
+        <div class="colorPicker">
+          <input id="colorPicker3" name="Color Picker" type="color" value="#3f87a6"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gameOver" id="gameOver">
+    <div>
+      <h1 class="gameOverTitle"> Game over! </h1>
+      <div class="scoresContainer">
+        <h3> Your score: </h3>
+        <ul class="scores" id="scores"></ul>
+      </div>
+      <div class="newGame" id="newGame"> New game </div>
+    </div>
+  </div>
+  <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+  <canvas id="canvas"></canvas>
+  <script src='./utils/utils.js'></script>
+  <script src='./objects/snake.js'></script>
+  <script src='./objects/food.js'></script>
+  <script src='./index.js'></script>
+</body>
+</html>
