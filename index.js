@@ -7,11 +7,22 @@ let snakes = [];
 let food;
 
 const animate = playersNumber => {
-  const isSnakesAlive = snakes.find(snake => snake.alive);
-  if(!isSnakesAlive) {
+  const snakesAlive = snakes.filter(snake => snake.alive).length;
+  if(playersNumber === 1 && snakesAlive === 0 || playersNumber > 1 && snakesAlive <= 1) {
     const scores = document.getElementById('scores');
     while (scores.hasChildNodes()) {
       scores.removeChild(scores.firstChild);
+    }
+    let winnerIdx = 0;
+    let winners = [winnerIdx];
+    for(let i = 1; i < snakes.length; i++) {
+      if(snakes[winnerIdx].score < snakes[i].score) {
+        winners = []
+        winners.push(i)
+        winnerIdx = i
+      } else if(snakes[winnerIdx].score === snakes[i].score) {
+        winners.push(i)
+      }
     }
     snakes.forEach((snake, idx) => {
       const node = document.createElement("li");
@@ -19,6 +30,18 @@ const animate = playersNumber => {
       document.getElementById('scores').appendChild(node);
       const textnode = document.createTextNode(`${idx + 1} player - ${snake.score}`);
       node.appendChild(textnode);
+      winners.forEach(winnerIdx => {
+        if(idx === winnerIdx) {
+          const imgnode = document.createElement('img');
+          imgnode.src = "./assets/crown.svg"
+          imgnode.style.width = '20px'
+          imgnode.style.height = '20px'
+          imgnode.style.position = 'relative'
+          imgnode.style.left = '10px'
+          imgnode.style.top = '4px'
+          node.appendChild(imgnode);
+        }
+      })
     })
     document.getElementById('gameOver').style.display = 'flex';
     document.getElementById('canvas').style.display = 'none';
@@ -39,6 +62,7 @@ const animate = playersNumber => {
           snake.death();
           snakes[i].death();
         } else if(segmentIdx !== 0 && firstSegmentPosition.x === segment.position.x && firstSegmentPosition.y === segment.position.y) {
+          snake.score += 50;
           snakes[i].death();
         }
       }));
